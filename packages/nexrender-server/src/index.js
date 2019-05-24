@@ -15,7 +15,7 @@ const handler = secret => withSecret(secret, router(
 ))
 
 module.exports = {
-    listen: (port = 3000, secret = '') => (
+    listen: (port = process.env.PORT || 3000, secret = '') => (
         micro(handler(secret)).listen(port)
     )
 }
